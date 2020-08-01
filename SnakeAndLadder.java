@@ -1,6 +1,7 @@
+import java.util.Random;
 class SnakeAndLadder {
     public static void main(String[] args) {
-       startplaying(3);
+       startplaying(1);
     }
 
     public static void startplaying(int numOfPlayers) {
@@ -11,7 +12,8 @@ class SnakeAndLadder {
         settingStartingPositions(playersPositions);
 
         // displaying players current position
-        currentPositions(playersPositions);
+        int rolledDie = rollTheDie();
+	System.out.println(rolledDie);
 
     }
 
@@ -30,3 +32,7 @@ class SnakeAndLadder {
     }
 }
 
+public static int rollTheDie(){
+        Random r = new Random();
+        return r.nextInt(6) + 1;
+    }

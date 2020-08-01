@@ -1,6 +1,6 @@
 class SnakeAndLadder {
     public static void main(String[] args) {
-       startplaying(3);
+        startplaying(1);
     }
 
     public static void startplaying(int numOfPlayers) {

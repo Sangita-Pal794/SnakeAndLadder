@@ -42,3 +42,4 @@ then
    PlayerOnePos=$(($StartPos))
 fi
 done
+echo "Game Over"

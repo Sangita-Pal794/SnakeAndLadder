@@ -14,7 +14,7 @@ Dice=$(( 1 + $RANDOM%6 ))
 echo $Dice
 move_type=`shuf -n 1 -e LADDER SNAKE NOPLAY`
 }
-
+#calling a function to move positions.
 checkOption(){
 	case $move_type in
 			NOPLAY)echo $(($1+0));;
@@ -29,5 +29,16 @@ rolleddice
 ((dice1count++))
 TempPos=$(checkOption $PlayerOnePos)
 PlayerOnePos=$(($TempPos))
-done
+if [ $PlayerOnePos -eq $WinPos ]
+then
+echo "Player One is currently at $WinPos after throwing $dice1count times"
+exit
+elif [ $PlayerOnePos -gt $WinPos ]
+then
 echo "Player One is currently at $PlayerOnePos after throwing $dice1count times"
+     PlayerOnePos=$(($PlayerOnePos-$Dice))
+elif [ $PlayerOnePos -lt $StartPos ]
+then
+   PlayerOnePos=$(($StartPos))
+fi
+done
